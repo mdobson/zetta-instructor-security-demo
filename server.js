@@ -1,9 +1,9 @@
 var zetta = require('zetta');
 var Twilio = require('zetta-twilio-driver');
 var Spreadsheet = require('zetta-spreadsheet-google-driver');
-var LED = require('zetta-bonescript-led-driver');
-var Buzzer = require('zetta-bonescript-buzzer-driver');
-var Microphone = require('zetta-bonescripte-microphone-driver');
+var LED = require('zetta-led-bonescript-driver');
+var Buzzer = require('zetta-buzzer-bonescript-driver');
+var Microphone = require('zetta-microphone-bonescript-driver');
 var Hue = require('zetta-hue-driver');
 var Camera = require('zetta-jsmpeg-camera');
 var Security = require('./devices/security');
@@ -24,6 +24,6 @@ zetta()
   .use(Hue)
   .use(Camera)
   .use(Security)
-  .use(RecordIntrusions);
-  .link('http://hello-zetta.herokuapp.com/')
+  .use(RecordIntrusions)
+  .link('http://zetta-instructor.herokuapp.com/')
   .listen(1337);

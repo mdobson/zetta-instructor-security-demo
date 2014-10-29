@@ -16,7 +16,7 @@ var SecuritySystem = module.exports = function(){
     }
   };
 
-  this._stream = self._microphone.createReadStream('volume');
+  this._stream = self._microphone.streams.volume;
 };
 util.inherits(SecuritySystem, Device);
 
@@ -41,7 +41,7 @@ SecuritySystem.prototype.armSystem = function(cb) {
 };
 
 SecuritySystem.prototype.disarmSystem = function(cb) {
-  this._stream.removeEventListener('data', this._listener);
+  this._stream.removeListener('data', this._listener);
   this.state = 'disarmed';
   cb();
 };
@@ -60,7 +60,7 @@ SecuritySystem.prototype.startAlarm = function(cb) {
       });
     },
     function(callback) {
-      self._twilio.call('send-sms', 'Alert! Someone has tripped your alarm!', function(err) {
+      self._phone.call('send-sms', 'Alert! Someone has tripped your alarm!', function(err) {
         callback(err);
       });
     }

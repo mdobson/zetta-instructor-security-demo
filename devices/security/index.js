@@ -12,11 +12,11 @@ SecurityScout.prototype.init = function(next) {
   var hueQuery = this.server.where({ type: 'huehub' });
   var buzzerQuery = this.server.where({ type: 'buzzer' });
   var microphoneQuery = this.server.where({ type: 'microphone' });
-  var twilioQuery = this.server.where({ type: 'twilio' });
+  var twilioQuery = this.server.where({ type: 'phone' });
 
   var queries = [ hueQuery, buzzerQuery, microphoneQuery, twilioQuery ];
   this.server.observe(queries, function(hue, buzzer, microphone, twilio) {
-    var securityQuery = server.where({ type: 'security-system' });
+    var securityQuery = self.server.where({ type: 'security-system' });
     var args = Array.prototype.slice.call(arguments);
     args.unshift(Security);
     self.server.find(securityQuery, function(err, results) {
@@ -29,4 +29,5 @@ SecurityScout.prototype.init = function(next) {
       } 
     });
   });
+  next();
 };

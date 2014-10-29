@@ -3,7 +3,7 @@ module.exports = function(server) {
   var spreadsheetQuery = server.where({ type: 'google`' });
   server.observe([securityQuery, spreadsheetQuery], function(securitySystem, spreadsheet){
     securitySystem.on('alarm', function() {
-      spreadsheet.call('update', {1: 'An intrusion occured.' 2: new Date().toString() });
+      spreadsheet.call('update', {1: 'An intrusion occured.', 2: new Date().toString() });
     });
   });
 };
