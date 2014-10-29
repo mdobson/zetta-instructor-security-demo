@@ -11,13 +11,13 @@ var RecordIntrusions = require('./apps/record');
 
 
 var twilioOpts = {
-  phoneNumber: '+17346345472'
+  phoneNumber: '+17342452497'
 };
 
 zetta()
   .name('matt.dobson')
   .use(Twilio, twilioOpts)
-  .use(Spreadsheet)
+  .use(Spreadsheet, 'Intrusions-Demo', 'Sheet1')
   .use(LED)
   .use(Buzzer)
   .use(Microphone)

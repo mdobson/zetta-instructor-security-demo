@@ -43,7 +43,17 @@ SecuritySystem.prototype.armSystem = function(cb) {
 SecuritySystem.prototype.disarmSystem = function(cb) {
   this._stream.removeListener('data', this._listener);
   this.state = 'disarmed';
-  cb();
+  if(this._buzzer.state === 'on') {
+    this._buzzer.call('turn-off', function(err) {
+      if(err) {
+        cb(err);
+      } else {
+        cb();
+      }
+    });	
+  } else {
+    cb();
+  }
 };
 
 SecuritySystem.prototype.startAlarm = function(cb) {
@@ -55,12 +65,12 @@ SecuritySystem.prototype.startAlarm = function(cb) {
       })
     },
     function(callback) {
-      self._huehub.call('color', 'rbg(255, 0, 0)', function(err) {
+      self._huehub.call('color', 'rgb(255, 0, 0)', function(err) {
         callback(err);
       });
     },
     function(callback) {
-      self._phone.call('send-sms', 'Alert! Someone has tripped your alarm!', function(err) {
+      self._phone.call('send-sms', '+17346345472', 'Alert! Someone has tripped your alarm!', function(err) {
         callback(err);
       });
     }
@@ -83,7 +93,7 @@ SecuritySystem.prototype.stopAlarm = function(cb) {
       })
     },
     function(callback) {
-      self._huehub.call('color', 'rbg(0, 255, 0)', function(err) {
+      self._huehub.call('color', 'rgb(0, 0, 255)', function(err) {
         callback(err);
       });
     }
