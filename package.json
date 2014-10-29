@@ -1,0 +1,26 @@
+{
+  "name": "zetta-security-instructor-demo",
+  "version": "0.0.0",
+  "description": "Security system instructor demo",
+  "main": "server.js",
+  "dependencies": {
+    "zetta": "~0.15.0",
+    "zetta-device": "~0.8.0",
+    "zetta-scout": "~0.4.0",
+    "zetta-spreadsheet-google-driver": "~0.3.0",
+    "zetta-twilio-driver": "~0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "zetta",
+    "iot",
+    "instructor",
+    "security"
+  ],
+  "author": "Matthew Dobson <@mdobs>",
+  "license": "MIT"
+}
