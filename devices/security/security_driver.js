@@ -65,7 +65,7 @@ SecuritySystem.prototype.startAlarm = function(cb) {
       })
     },
     function(callback) {
-      self._huehub.call('color', 'rgb(255, 0, 0)', function(err) {
+      self._huehub.call('color', '#ff0000', function(err) {
         callback(err);
       });
     },
@@ -75,6 +75,8 @@ SecuritySystem.prototype.startAlarm = function(cb) {
       });
     }
   ], function(err, results) {
+    console.log('Final function');
+    console.log(arguments);
     if(err) {
       cb(err);
     } else {
@@ -93,7 +95,7 @@ SecuritySystem.prototype.stopAlarm = function(cb) {
       })
     },
     function(callback) {
-      self._huehub.call('color', 'rgb(0, 0, 255)', function(err) {
+      self._huehub.call('color', '#0000ff', function(err) {
         callback(err);
       });
     }
