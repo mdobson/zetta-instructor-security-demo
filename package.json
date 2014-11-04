@@ -4,7 +4,7 @@
   "description": "Security system instructor demo",
   "main": "server.js",
   "dependencies": {
-    "zetta": "~0.15.0",
+    "zetta": "~0.16.0",
     "zetta-device": "~0.8.0",
     "zetta-scout": "~0.4.0",
     "zetta-spreadsheet-google-driver": "^0.4.0",
