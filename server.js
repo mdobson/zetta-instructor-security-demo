@@ -5,7 +5,6 @@ var LED = require('zetta-led-edison-driver');
 var Buzzer = require('zetta-buzzer-edison-driver');
 var Microphone = require('zetta-microphone-edison-driver');
 var Hue = require('zetta-hue-driver');
-var Camera = require('zetta-jsmpeg-camera');
 var Security = require('./devices/security');
 var RecordIntrusions = require('./apps/record');
 
@@ -22,7 +21,6 @@ zetta()
   .use(Buzzer)
   .use(Microphone)
   .use(Hue)
-  .use(Camera)
   .use(Security)
   .use(RecordIntrusions)
   .link('http://zetta-instructor.herokuapp.com/')

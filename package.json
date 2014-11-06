@@ -10,7 +10,6 @@
     "zetta-spreadsheet-google-driver": "^0.4.0",
     "zetta-twilio-driver": "~0.3.0",
     "zetta-hue-driver": "^0.3.0",
-    "zetta-jsmpeg-camera": "^0.3.0",
     "async": "^0.9.0",
     "zetta-microphone-edison-driver": "^0.6.0",
     "zetta-buzzer-edison-driver": "^0.9.0",
